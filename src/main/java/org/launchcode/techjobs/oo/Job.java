@@ -35,6 +35,51 @@ public class Job {
     //  match.
 
     @Override
+    public String toString(){
+        String str = "\n" +
+                "ID: " + this.id + "\n" +
+                "Name: ";
+        String dataMissing = "Data not available\n";
+
+        if(this.name == null && this.employer == null && this.location == null
+        && this.positionType == null && this.coreCompetency == null){
+            return "\n\nOOPS! This job does not seem to exist.\n\n";
+        }
+
+        if(this.name == null){
+            str = str.concat(dataMissing);
+        } else {
+            str = str.concat(this.name + "\n");
+        }
+        str = str.concat("Employer: ");
+        if(this.employer.getValue() == null || this.employer.getValue() == ""){
+            str = str.concat(dataMissing);
+        } else {
+            str = str.concat(this.employer + "\n");
+        }
+        str = str.concat("Location: ");
+        if(this.location.getValue() == null || this.location.getValue() == ""){
+            str = str.concat(dataMissing);
+        } else {
+            str = str.concat(this.location + "\n");
+        }
+        str = str.concat("Position Type: ");
+        if(this.positionType.getValue() == null || this.positionType.getValue() == ""){
+            str = str.concat(dataMissing);
+        } else {
+            str = str.concat(this.positionType + "\n");
+        }
+        str = str.concat("Core Competency: ");
+        if(this.coreCompetency.getValue() == null || this.coreCompetency.getValue() == ""){
+            str = str.concat(dataMissing);
+        } else {
+            str = str.concat(this.coreCompetency + "\n");
+        }
+
+        return str;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
