@@ -92,7 +92,7 @@ public class JobTest {
         Job emptyJob = new Job();
         Job incompleteJob = new Job("name",
                 new Employer("employer"),
-                new Location(),
+                new Location(""),
                 new PositionType("positionType"),
                 new CoreCompetency("coreCompetency"));
         String str = "\n" +
